@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("ninjas")
@@ -30,5 +31,11 @@ public class NinjaController {
         return ninjaRepository.findAll(page);
     }
 
+    @GetMapping("encontrar/{id}")
+    public ResponseEntity<?> getNinjasById(@PathVariable Long id){
+       Optional<Ninja> ninja = ninjaRepository.findById(id);
+
+       return ninja.map(ResponseEntity::ok).orElseGet(() -> ( ResponseEntity.notFound().build()));
+    }
 
 }
