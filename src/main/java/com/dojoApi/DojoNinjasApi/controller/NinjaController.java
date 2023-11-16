@@ -5,14 +5,16 @@ import com.dojoApi.DojoNinjasApi.recordsClass.NinjaRegisterDate;
 import com.dojoApi.DojoNinjasApi.repository.NinjaRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("ninja")
+@RequestMapping("ninjas")
 public class NinjaController {
 
     @Autowired
@@ -21,6 +23,11 @@ public class NinjaController {
     @Transactional
     public void createNinja (@RequestBody @Valid NinjaRegisterDate data){
         ninjaRepository.save( new Ninja(data));
+    }
+
+    @GetMapping
+    public Page<Ninja> getNinjas(@PageableDefault(size = 5) Pageable page){
+        return ninjaRepository.findAll(page);
     }
 
 
