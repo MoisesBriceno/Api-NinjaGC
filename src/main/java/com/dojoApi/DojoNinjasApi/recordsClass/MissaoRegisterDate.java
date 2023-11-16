@@ -2,12 +2,17 @@ package com.dojoApi.DojoNinjasApi.recordsClass;
 
 import com.dojoApi.DojoNinjasApi.model.enums.Difficulty;
 import com.dojoApi.DojoNinjasApi.model.enums.TipoMissao;
+import jakarta.validation.constraints.NotNull;
 
 
 public record MissaoRegisterDate(
+        @NotNull
        long ninja_id,
-       Difficulty classificacao,
-       TipoMissao tipo_missao,
-       boolean status
+        @NotNull
+        Difficulty classificacao,
+        @NotNull
+        TipoMissao tipo_missao,
+        @NotNull
+        boolean status
 ) {
 }
