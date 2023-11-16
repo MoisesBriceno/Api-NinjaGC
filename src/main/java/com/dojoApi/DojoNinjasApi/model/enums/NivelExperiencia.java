@@ -1,4 +1,4 @@
-package com.dojoApi.DojoNinjasApi.model;
+package com.dojoApi.DojoNinjasApi.model.enums;
 
 public enum NivelExperiencia {
     GENIN,
