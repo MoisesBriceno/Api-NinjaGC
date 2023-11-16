@@ -1,7 +1,8 @@
 package com.dojoApi.DojoNinjasApi.model;
 
 import com.dojoApi.DojoNinjasApi.model.enums.NivelExperiencia;
-import com.dojoApi.DojoNinjasApi.recordsClass.NinjaRegisterDate;
+import com.dojoApi.DojoNinjasApi.recordsClass.NinjaRegisterData;
+import com.dojoApi.DojoNinjasApi.recordsClass.NinjaUpdadeData;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -25,11 +26,19 @@ public class Ninja {
         @Enumerated(EnumType.STRING)
         private NivelExperiencia nivelExperiencia;
 
-        public Ninja(NinjaRegisterDate data){
+        public Ninja(NinjaRegisterData data){
             this.status = true;
             this.vila = data.vila();
             this.nome = data.nome();
             this.nivelExperiencia = data.nivelExperiencia();
 
         }
+
+    public void update(NinjaUpdadeData data) {
+            this.status = data.status();
+
+            if (data.nivelExperiencia() != null){
+                 this.nivelExperiencia = data.nivelExperiencia();
+            }
+    }
 }

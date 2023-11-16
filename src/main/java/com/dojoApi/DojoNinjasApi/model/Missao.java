@@ -3,7 +3,7 @@ package com.dojoApi.DojoNinjasApi.model;
 
 import com.dojoApi.DojoNinjasApi.model.enums.Difficulty;
 import com.dojoApi.DojoNinjasApi.model.enums.TipoMissao;
-import com.dojoApi.DojoNinjasApi.recordsClass.MissaoRegisterDate;
+import com.dojoApi.DojoNinjasApi.recordsClass.MissaoRegisterData;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -26,7 +26,7 @@ public class Missao {
     private TipoMissao tipo_missao;
     private boolean status;
 
-    public Missao(MissaoRegisterDate data) {
+    public Missao(MissaoRegisterData data) {
         this.ninja_id = data.ninja_id();
         this.classificacao = data.classificacao();
         this.tipo_missao = data.tipo_missao();

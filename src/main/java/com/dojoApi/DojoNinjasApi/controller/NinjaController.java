@@ -1,7 +1,8 @@
 package com.dojoApi.DojoNinjasApi.controller;
 
 import com.dojoApi.DojoNinjasApi.model.Ninja;
-import com.dojoApi.DojoNinjasApi.recordsClass.NinjaRegisterDate;
+import com.dojoApi.DojoNinjasApi.recordsClass.NinjaRegisterData;
+import com.dojoApi.DojoNinjasApi.recordsClass.NinjaUpdadeData;
 import com.dojoApi.DojoNinjasApi.repository.NinjaRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class NinjaController {
     private NinjaRepository ninjaRepository;
     @PostMapping("create")
     @Transactional
-    public void createNinja (@RequestBody @Valid NinjaRegisterDate data){
+    public void createNinja (@RequestBody @Valid NinjaRegisterData data){
         ninjaRepository.save( new Ninja(data));
     }
 
@@ -36,6 +37,13 @@ public class NinjaController {
        Optional<Ninja> ninja = ninjaRepository.findById(id);
 
        return ninja.map(ResponseEntity::ok).orElseGet(() -> ( ResponseEntity.notFound().build()));
+    }
+
+    @PutMapping("update")
+    @Transactional
+    public void updateNinja (@RequestBody @Valid NinjaUpdadeData data){
+        Ninja ninja = ninjaRepository.getReferenceById(data.id());
+        ninja.update(data);
     }
 
 }

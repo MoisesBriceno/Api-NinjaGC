@@ -4,7 +4,7 @@ import com.dojoApi.DojoNinjasApi.model.enums.NivelExperiencia;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record NinjaRegisterDate(
+public record NinjaRegisterData(
         @NotBlank
         String nome,
         @NotBlank

@@ -1,7 +1,7 @@
 package com.dojoApi.DojoNinjasApi.controller;
 
 import com.dojoApi.DojoNinjasApi.model.Missao;
-import com.dojoApi.DojoNinjasApi.recordsClass.MissaoRegisterDate;
+import com.dojoApi.DojoNinjasApi.recordsClass.MissaoRegisterData;
 import com.dojoApi.DojoNinjasApi.repository.MissaoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class MissaoController {
 
     @PostMapping("create")
     @Transactional
-    public void createMissao (@RequestBody @Valid MissaoRegisterDate data){
+    public void createMissao (@RequestBody @Valid MissaoRegisterData data){
         missaoRepository.save( new Missao(data));
     }
 }

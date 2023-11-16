@@ -5,7 +5,7 @@ import com.dojoApi.DojoNinjasApi.model.enums.TipoMissao;
 import jakarta.validation.constraints.NotNull;
 
 
-public record MissaoRegisterDate(
+public record MissaoRegisterData(
         @NotNull
        long ninja_id,
         @NotNull
