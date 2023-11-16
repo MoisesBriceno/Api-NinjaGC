@@ -1,6 +1,6 @@
 package com.dojoApi.DojoNinjasApi.recordsClass;
 
-import com.dojoApi.DojoNinjasApi.model.NivelExperiencia;
+import com.dojoApi.DojoNinjasApi.model.enums.NivelExperiencia;
 
 public record NinjaRegisterDate(
 

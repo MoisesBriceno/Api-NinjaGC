@@ -1,7 +1,7 @@
 package com.dojoApi.DojoNinjasApi.recordsClass;
 
-import com.dojoApi.DojoNinjasApi.model.Difficulty;
-import com.dojoApi.DojoNinjasApi.model.TipoMissao;
+import com.dojoApi.DojoNinjasApi.model.enums.Difficulty;
+import com.dojoApi.DojoNinjasApi.model.enums.TipoMissao;
 
 
 public record MissaoRegisterDate(

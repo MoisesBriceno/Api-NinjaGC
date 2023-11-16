@@ -1,5 +1,6 @@
 package com.dojoApi.DojoNinjasApi.model;
 
+import com.dojoApi.DojoNinjasApi.model.enums.NivelExperiencia;
 import com.dojoApi.DojoNinjasApi.recordsClass.NinjaRegisterDate;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

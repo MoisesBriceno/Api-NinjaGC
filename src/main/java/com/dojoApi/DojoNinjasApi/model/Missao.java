@@ -1,6 +1,8 @@
 package com.dojoApi.DojoNinjasApi.model;
 
 
+import com.dojoApi.DojoNinjasApi.model.enums.Difficulty;
+import com.dojoApi.DojoNinjasApi.model.enums.TipoMissao;
 import com.dojoApi.DojoNinjasApi.recordsClass.MissaoRegisterDate;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
